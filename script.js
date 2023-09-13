@@ -1,5 +1,10 @@
-let arr = ["images/one (1).jpg", "images/one (2).jpg", "images/one (3).jpg", "images/one (4).jpg", "images/one (5).jpg", "images/one (6).jpg", "images/one (7).jpg", "images/one(8).jpg", "images/one(9).jpg", "images/one(10).jpg", "images/one(11).jpg", "images/one(12).jpg"]
+let arr = ["images/one (1).jpg", 'images/one (2).jpg', "images/one (3).jpg", "images/one (4).jpg", "images/one (5).jpg", "images/one (6).jpg", "images/one (7).jpg", "images/one(8).jpg", "images/one(9).jpg", "images/one(10).jpg", "images/one(11).jpg", "images/one(12).jpg"]
 let currentId = 0;
+
+
+for (let i = 1; i <= arr.length; i++) {
+  document.getElementById(i).src = arr[i - 1];
+}
 
 
 function handlePopUp(id) {
@@ -61,13 +66,6 @@ function handleNext(value) {
   }
 
 }
-
-
-
-
-// if (currentId == 11) {
-//   document.getElementById("next").style.visibility = "hidden"
-// }
 
 
 
