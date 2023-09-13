@@ -11,9 +11,10 @@ section {
   /* padding: 2%; */
 }
 
-#container {
+.container {
   width: 100%;
-  height: fit-content;
+  /* height: fit-content; */
+  height: 100vh;
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -113,9 +114,6 @@ section {
   }
 }
 @media screen and (max-width: 1025px) {
-  section {
-    /* padding: 1%; */
-  }
   .imageContainer {
     width: 14rem;
     height: 9rem;

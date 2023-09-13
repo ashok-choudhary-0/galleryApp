@@ -2,9 +2,25 @@ let arr = ["images/one (1).jpg", 'images/one (2).jpg', "images/one (3).jpg", "im
 let currentId = 0;
 
 
-for (let i = 1; i <= arr.length; i++) {
-  document.getElementById(i).src = arr[i - 1];
+
+function insertImages() {
+  let container = document.querySelector(".container");
+  for (let i = 1; i <= arr.length; i++) {
+    let image = document.createElement('img');
+    image.classList.add("imageContainer")
+    image.src = arr[i - 1];
+    image.onclick = (function (i) {
+      return function () {
+        handlePopUp(i);
+      }
+
+    })(i)
+    container.appendChild(image)
+  }
 }
+
+insertImages()
+
 
 
 function handlePopUp(id) {
