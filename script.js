@@ -13,7 +13,6 @@ function insertImages() {
       return function () {
         handlePopUp(i);
       }
-
     })(i)
     container.appendChild(image)
   }
@@ -21,67 +20,63 @@ function insertImages() {
 
 insertImages()
 
+function hideOrVisible(currentIdValue, button) {
+  if (currentId == currentIdValue) {
+    document.getElementById(`${button}`).style.visibility = "hidden"
+  } else {
+    document.getElementById(`${button}`).style.visibility = "visible"
+  }
+}
+
+function showPopUp(className, displayValue) {
+  document.querySelector(`.${className}`).style.display = `${displayValue}`;
+}
+
+
 
 
 function handlePopUp(id) {
   currentId = id;
+  hideOrVisible(1, "pre");
+  hideOrVisible(arr.length, "next");
 
-  if (currentId == 1) {
-    document.getElementById("pre").style.visibility = "hidden"
-  } else {
-    document.getElementById("pre").style.visibility = "visible"
-  }
-
-  if (currentId == 12) {
-    document.getElementById("next").style.visibility = "hidden"
-  } else {
-    document.getElementById("next").style.visibility = "visible"
-  }
-
-
-
-  document.querySelector(".popup").style.display = "flex";
-  document.querySelector(".popUpContainer").style.display = "flex";
+  showPopUp("popup", "flex");
+  showPopUp("popUpContainer", "flex");
   document.getElementById("popUpImage").src = arr[id - 1];
 }
 if (currentId != 0) {
   document.getElementById("pre").style.visibility = "visible"
 }
 document.querySelector(".popup").addEventListener("click", () => {
-  document.querySelector(".popUpContainer").style.display = "none";
-  document.querySelector(".popup").style.display = "none";
-}
-
-
-
-)
+  showPopUp("popUpContainer", "none");
+  showPopUp("popup", "none");
+})
 
 function handleNext(value) {
-
-  if (value == "next" && currentId <= 11) {
-    if (currentId == 11) {
+  if (value == "next" && currentId <= arr.length - 1) {
+    if (currentId == arr.length - 1) {
       document.getElementById("next").style.visibility = "hidden"
     }
     currentId++;
     document.getElementById("popUpImage").src = arr[currentId - 1];
-  }
-  if (value == "pre" && currentId > 1) {
-
-    if (currentId != 11) {
+  }else if (value == "pre" && currentId > 1) {
+    if (currentId != arr.length - 1) {
       document.getElementById("next").style.visibility = "visible"
     }
     currentId--;
-
     document.getElementById("popUpImage").src = arr[currentId - 1];
   }
-  if (currentId != 0) {
+
+
+  if (currentId > 0) {
     document.getElementById("pre").style.visibility = "visible"
   }
   if (currentId == 1) {
     document.getElementById("pre").style.visibility = "hidden"
   }
-
 }
+
+
 
 
 
